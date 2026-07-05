@@ -1,5 +1,4 @@
-def get_name_with_age(name: str, age: int):                   #Type hints declared but unsupported combination (str + int)
-    name_with_age = name + " is this old: " + str(age)        #Converted age to str for compatibiltiy.
-    return name_with_age
+def get_items(item_a: str, item_b: bool, item_c: int, item_d: bytes, item_e: float):
+    return item_a, item_b, item_c, item_d, item_e
 
-print(get_name_with_age('ani', 18))
+#Type hints can have any data type.
