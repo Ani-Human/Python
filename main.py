@@ -1,5 +1,7 @@
-def get_full_name(first_name, last_name): #The function and its parameters
-    full_name= first_name + " " + last_name #It takes the first name and last name. Also adds a space in between.
-    return full_name #Returns the output (only for the machine not the user)
+def get_full_name(first_name: str, last_name: str):         #The function with the parameters equipped with type hints (str)
+    full_name= first_name.title() + ' ' + last_name.title()  #String concatenation, giving the parameters a way to express them selves. Used .title() to capitalize the first letter.
+    return full_name                                        #Returning the output
 
-print(get_full_name('john', 'doe')) #prints the output with the paramerters 'john' and 'doe'.
+print(get_full_name('john', 'doe'))
+
+#type hints are used for annotations for variables, to declare the type of data they give.
