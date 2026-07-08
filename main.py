@@ -1,9 +1,17 @@
-#DECLRING CLASS AS A TYPE OF VARIABLE.
+from datetime import datetime
+from pydantic import BaseModel
 
-class Person:
-    def __init__(self, name: str):
-        self.name = name
+class user(BaseModel):
+    id: int
+    name: str = 'John Doe'
+    signup_ts: datetime | None = None
+    friends: list[int] = []
 
-def get_person_name(one_person: Person):
-    return one_person.name
+external_data= {
+    'id' : '123',
+    'signup_ts' : '2017-06-01 12:22',
+    'friends' : [1, '2', b'3'],
+}
 
+user = user(**external_data)
+print(user.id)
