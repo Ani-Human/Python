@@ -1,17 +1,4 @@
-from datetime import datetime
-from pydantic import BaseModel
+from typing import Annotated
 
-class user(BaseModel):
-    id: int
-    name: str = 'John Doe'
-    signup_ts: datetime | None = None
-    friends: list[int] = []
-
-external_data= {
-    'id' : '123',
-    'signup_ts' : '2017-06-01 12:22',
-    'friends' : [1, '2', b'3'],
-}
-
-user = user(**external_data)
-print(user.id)
+def say_hello(name: Annotated[str, 'this is just metadata']) -> str:
+    return f"hello {name}"
