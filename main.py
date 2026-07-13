@@ -1,26 +1,21 @@
+from enum import Enum
+
 from fastapi import FastAPI
+
+
+class ModelName(str, Enum):
+    alexnet = 'alexnet'
+    resnet = 'resnet'
+    lenet = 'lenet'
 
 app = FastAPI()
 
-#The order matters alot.abs
-#path operations are evaluated in order. 
+@app.get('/models/{model_name}')
+async def get_model(model_name: ModelName):
+    if model_name is ModelName.alexnet:
+        return {'model_name': model_name , 'message': 'The alexnet stuff'}
+    if model_name is ModelName.resnet:
+        return {'model_name': model_name , 'message': 'The resnet stuff'}
+    if model_name is ModelName.lenet:
+            return {'model_name': model_name , 'message': 'The alexnet stuff'}
 
-
-@app.get('/users/me')
-async def read_user_me():
-    return {'user' : 'me'} #This was using the read_user function and bugged. 
-
-@app.get('/users/{user_id}')
-async def read_user(user_id: int):
-    return {'user' : user_id}
-
-
-
-'''
-The order matters becuz if the position of the functions are reversed,
-the user_id parameter will have the result 'me' always.
-[Paths are evaluated in order]
-
-path for /users/{user_id} would match also for /users/me, 
-"thinking" that it's receiving a parameter user_id with a value of "me"
-'''
