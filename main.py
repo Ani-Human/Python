@@ -1,21 +1,23 @@
-from enum import Enum
+#Query parameters
+#Optional params can be given too
+#Fastapi is smart enough to rectify the path params and query params
+#Query type conversion
 
 from fastapi import FastAPI
 
-
-class ModelName(str, Enum):
-    alexnet = 'alexnet'
-    resnet = 'resnet'
-    lenet = 'lenet'
-
 app = FastAPI()
 
-@app.get('/models/{model_name}')
-async def get_model(model_name: ModelName):
-    if model_name is ModelName.alexnet:
-        return {'model_name': model_name , 'message': 'The alexnet stuff'}
-    if model_name is ModelName.resnet:
-        return {'model_name': model_name , 'message': 'The resnet stuff'}
-    if model_name is ModelName.lenet:
-            return {'model_name': model_name , 'message': 'The alexnet stuff'}
 
+fake_items_db= [{'item_name' : 'foo'}, {'item_name' : 'Bar'}, {'item_name' : 'pencil'}]
+
+@app.get('/items/{item_id}')
+async def read_items(item_id: str, q: str | None = None, short: bool = False):
+    item = {'item_id' : item_id}
+    if q:
+        item.update({'q' : q})
+    if short: #An optional query
+        item.update(
+
+        {"description": "This is an amazing item that has a long description"}
+        )
+    return item
