@@ -1,27 +1,10 @@
-#Query parameters
-#Optional params can be given too
-#Fastapi is smart enough to rectify the path params and query params
-#Query type conversion
-#Multiple paths and query params 
-
 from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get('/users/{user_id}/item_id/{item_id}')
-async def read_user_item(
-    user_id: int, item_id: str, q: str | None = None, short: bool = False
-):
-    item = {
-        'item_id' : item_id,
-        'owner_id' : user_id,
+@app.get('/items/{item_id}')
+async def read_user_item(item_id: str, required_query: int ): #To make the required query optional add " | None = None"
+    return {
+        'item id' : item_id,
+        'Required query' : required_query,
     }
-    if q:
-        item.update(
-            {'q' : q}
-        )
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
-        )
-    return item
