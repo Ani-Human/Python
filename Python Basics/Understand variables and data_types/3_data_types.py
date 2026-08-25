@@ -1,6 +1,6 @@
 #data type: The kind of value a variable holds.
 
-#python is dynamicallt typed language- It means that there is no need to specify the data type of the variable. 
+#python is dynamically typed language- It means that there is no need to specify the data type of the variable. 
 
 name = 'ani' #python knows its a string
 age = 25 # Python knows this is an integer
