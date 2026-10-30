@@ -1,3 +1,7 @@
+*FUNCTIONS* 
+
+
+#Maths and Numbers
 1. abs(): Returns the absolute value of a number 
 # abs(-7) -> 7
 
@@ -90,10 +94,10 @@
 
 6. str(): Coverts any specified object into its user friendly
 
-6. bytearray(): Creates a mutable array structure of raw byte values. 
+7. bytearray(): Creates a mutable array structure of raw byte values. 
 # bytearray([65, 66]) -> bytearray(b'AB')
 
-7. bytes(): Creates an immutable array structure of raw byte values. 
+8. bytes(): Creates an immutable array structure of raw byte values. 
 # bytes([65, 66]) -> b'AB'
 
 
@@ -103,6 +107,7 @@
 
 2. type(): Returns the underlying data type of an object. 
 # type(5) -> <class 'int'>
+
 
 
 #Input/Output & System Reflection
@@ -136,6 +141,11 @@
 
 
 
+*Variables* 
+1. Must start with letter or underscore
+2. Can't start with a number 
+3. Can only contain Alpha-numeric and underscores. 
+4. CaseSensitive
 
 
 
